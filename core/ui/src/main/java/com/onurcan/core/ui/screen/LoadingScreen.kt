@@ -38,7 +38,6 @@ fun LoadingScreen(
 @Composable
 private fun LiquidLoadingAnimation() {
     val infiniteTransition = rememberInfiniteTransition(label = "liquidLoading")
-
     LiquidCircle(infiniteTransition, delayMillis = 0, durationMillis = 2500)
     LiquidCircle(infiniteTransition, delayMillis = 600, durationMillis = 2200)
     LiquidCircle(infiniteTransition, delayMillis = 1200, durationMillis = 2800)

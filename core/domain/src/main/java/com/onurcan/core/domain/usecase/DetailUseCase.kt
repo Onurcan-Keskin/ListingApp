@@ -22,7 +22,5 @@ class DetailUseCase(
     fun updateBody(id: String, body: String): Completable =
         rxCompletable { postModelDao.updateBody(id, body) }
 
-    fun deletePost(id: String): Completable = rxCompletable { postModelDao.deletePostModelItem(id) }
-
     override fun execute(request: String): Single<PostModelItemEntity> = getPost(request)
 }

@@ -25,7 +25,6 @@ fun rememberNavigationState(
 ): NavigationState {
     val topLevelStack = rememberNavBackStack(startKey)
     val subStacks = topLevelKeys.associateWith { key -> rememberNavBackStack(key) }
-
     return remember(startKey, topLevelKeys) {
         NavigationState(
             startKey = startKey,
@@ -52,12 +51,10 @@ class NavigationState(
     val topLevelKeys
         get() = subStacks.keys
 
-    @get:VisibleForTesting
     val currentSubStack: NavBackStack<NavKey>
         get() = subStacks[currentTopLevelKey]
             ?: error("Sub stack for $currentTopLevelKey does not exist")
 
-    @get:VisibleForTesting
     val currentKey: NavKey by derivedStateOf { currentSubStack.last() }
 }
 
